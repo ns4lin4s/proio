@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ns4lin4s/proio/issues"
   },
-  "homepage": "https://github.com/ns4lin4s/proio#readme"
+  "homepage": "https://github.com/ns4lin4s/proio#readme",
+  "dependencies": {
+    "hapi": "^16.1.0"
+  }
 }
