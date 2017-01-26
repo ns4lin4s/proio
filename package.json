@@ -1,0 +1,19 @@
+{
+  "name": "proio",
+  "version": "1.0.0",
+  "description": "A realtime chat with video",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ns4lin4s/proio.git"
+  },
+  "author": "Nelson Osvaldo <ns4lin4s@gmail.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/ns4lin4s/proio/issues"
+  },
+  "homepage": "https://github.com/ns4lin4s/proio#readme"
+}
