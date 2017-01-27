@@ -4,6 +4,10 @@
   "description": "A realtime chat with video",
   "main": "server.js",
   "scripts": {
+    "build": "npm run clean && npm run public && npm run copy && uglifyjs src/client/js/index.js -o public/app.min.js",
+    "copy": "cp src/client/index.html  public/index.html",
+    "public": "mkdir -p public/",
+    "clean": "rm -rf public/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
