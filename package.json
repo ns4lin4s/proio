@@ -4,7 +4,7 @@
   "description": "A realtime chat with video",
   "main": "server.js",
   "scripts": {
-    "build": "npm run clean && npm run public && npm run copy && uglifyjs src/client/js/index.js -o public/app.min.js",
+    "build": "npm run clean && npm run public && npm run copy && browserify src/client/js/index.js -o src/client/js/app.js && uglifyjs src/client/js/app.js -o public/app.min.js",
     "copy": "cp src/client/index.html  public/index.html",
     "public": "mkdir -p public/",
     "clean": "rm -rf public/",
@@ -22,6 +22,10 @@
   "homepage": "https://github.com/ns4lin4s/proio#readme",
   "dependencies": {
     "hapi": "^16.1.0",
-    "inert": "^4.1.0"
+    "inert": "^4.1.0",
+    "webrtc2images": "^1.4.4"
+  },
+  "devDependencies": {
+    "browserify": "^14.0.0"
   }
 }
