@@ -9,6 +9,8 @@ const port = process.env.PORT || 8080
 
 const server = new Hapi.Server()
 
+const jsonBody = require('body/json')
+
 server.connection({
 
 	host: 'localhost',
@@ -42,3 +44,23 @@ server.register(require('inert'),(err) => {
     })
 })
 
+server.route({
+    method:'POST',
+    path: '/process',
+    config: {
+        payload:{
+            maxBytes: 3145728
+        }
+    },
+    handler: function(req, reply){
+        console.dir(req.payload.images)
+        reply({ ok: true }).code(200)
+        /*jsonBody(req, reply,{},function(err,body){
+            if(err)
+                throw err
+
+            console.log(body)
+            reply({ ok: true }).code(200)
+        })*/
+    }
+})

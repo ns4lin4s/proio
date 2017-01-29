@@ -23,7 +23,8 @@
   "dependencies": {
     "hapi": "^16.1.0",
     "inert": "^4.1.0",
-    "webrtc2images": "^1.4.4"
+    "webrtc2images": "^1.4.4",
+    "xhr": "^2.3.3"
   },
   "devDependencies": {
     "browserify": "^14.0.0"
