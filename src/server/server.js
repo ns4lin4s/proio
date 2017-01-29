@@ -1,15 +1,10 @@
-
 'use strict'
 
 const Path = require('path')
-
 const Hapi = require('hapi')
-
 const port = process.env.PORT || 8080
-
 const server = new Hapi.Server()
-
-const jsonBody = require('body/json')
+const helper = require('./helper')
 
 server.connection({
 
@@ -49,18 +44,18 @@ server.route({
     path: '/process',
     config: {
         payload:{
-            maxBytes: 3145728
+            maxBytes: 3145720000000
         }
     },
     handler: function(req, reply){
-        console.dir(req.payload.images)
-        reply({ ok: true }).code(200)
-        /*jsonBody(req, reply,{},function(err,body){
-            if(err)
-                throw err
 
-            console.log(body)
-            reply({ ok: true }).code(200)
-        })*/
+        if(!Array.isArray(req.payload.images))
+            reply({error: 'No es un tipo válido'}).code(500)
+
+        let converter = helper.convertVideo(req.payload.images)
+
+        converter.on('video',function(video){
+            reply({ video : video }).code(200)
+        })
     }
 })
